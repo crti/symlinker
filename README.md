@@ -5,6 +5,14 @@ Symlinker is a minimalistic web-based file manager written in PHP that is built 
 
 ![](symlinker/raw/master/screenshots/symlinker-cropped-screenshot.png)
 
+Changelog by crti
+-------------------
+
+* set input type size (broader input fields)
+* cut the space between the dir/file path output
+* inserted CSS mono font style
+* changed some lines version etc.
+
 Why would I use it?
 -------------------
 
