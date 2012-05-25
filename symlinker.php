@@ -16,6 +16,10 @@ $default_path = '/';
 <title>Symlinker</title>
 </head>
 <style type="text/css">
+body {
+    font-style: font-family: Inconsolata,Consolas,"Deja Vu Sans Mono","Droid Sans Mono",
+    "Andale Mono",Freemono,"Liberation Mono",Courier,"Courier New",monospace; 
+}
 a:link, a:visited, a:active {
     color: blue;
 }
@@ -24,7 +28,7 @@ a:link, a:visited, a:active {
 
 <?php
 
-$version = '0.0.2';
+$version = '0.0.2.1';
 $error = false;
 
 function is_authenticated()
@@ -132,7 +136,7 @@ function get_navigation_bar($path)
     $dirs = explode('/', $path);
     array_shift($dirs);
     $out = '<div style="float:left">';
-    $out .= '<a href="' . $_SERVER['PHP_SELF']. '?path=/">[root]</a> ';
+    $out .= '<a href="' . $_SERVER['PHP_SELF']. '?path=/">[root]</a>';
 
     if ($path == '/') {
         return $out;
@@ -141,7 +145,7 @@ function get_navigation_bar($path)
     $path = '';
     foreach ($dirs as $dir) {
         $path .= "/$dir";
-        $out .= '/ <a href="' . $_SERVER['PHP_SELF'] . "?path=$path\">$dir</a> ";
+        $out .= '/<a href="' . $_SERVER['PHP_SELF'] . "?path=$path\">$dir</a>";
     }
 
     $out .= '</div><div style="float:right">' .
@@ -155,8 +159,8 @@ function get_symlink_creator($path)
 {
     print '<form method="post" action="' . $_SERVER['PHP_SELF'] . "?path=$path\">" .
           '<br>' .
-          '<input type="text" name="source" id="focused"> &rArr; ' .
-          '<input type="text" name="destination"> ' .
+          '<input type="text" name="source" id="focused" size="100"> &rArr; ' .
+          '<input type="text" name="destination" size="100"> ' .
           '<input type="submit" name="operation" value="symlink">' .
           '<br>' .
           '</form>';
@@ -227,7 +231,7 @@ function get_footer($version)
 {
     print '<hr><div style="text-align:center;"><a href="https://github.com/mondalaci/symlinker">' .
           "Symlinker</a> $version by " .
-          '<a href="http://laci.monda.hu">L&aacute;szl&oacute; Monda</a>, ' .
+          '<a href="http://laci.monda.hu">L&aacute;szl&oacute; Monda</a> (mod crti), ' .
           'licensed under the <a href="http://www.gnu.org/licenses/gpl-3.0.html">' .
           'GPLv3</a></div>';
 }
