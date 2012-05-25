@@ -17,7 +17,7 @@ $default_path = '/';
 </head>
 <style type="text/css">
 body {
-    font-style: font-family: Inconsolata,Consolas,"Deja Vu Sans Mono","Droid Sans Mono",
+    font-family: Inconsolata,Consolas,"Deja Vu Sans Mono","Droid Sans Mono",
     "Andale Mono",Freemono,"Liberation Mono",Courier,"Courier New",monospace; 
 }
 a:link, a:visited, a:active {
@@ -136,7 +136,7 @@ function get_navigation_bar($path)
     $dirs = explode('/', $path);
     array_shift($dirs);
     $out = '<div style="float:left">';
-    $out .= '<a href="' . $_SERVER['PHP_SELF']. '?path=/">[root]</a>';
+    $out .= '<a href="' . $_SERVER['PHP_SELF']. '?path=/">[root]</a><br>';
 
     if ($path == '/') {
         return $out;
@@ -231,7 +231,7 @@ function get_footer($version)
 {
     print '<hr><div style="text-align:center;"><a href="https://github.com/mondalaci/symlinker">' .
           "Symlinker</a> $version by " .
-          '<a href="http://laci.monda.hu">L&aacute;szl&oacute; Monda</a> (mod crti), ' .
+          '<a href="http://laci.monda.hu">L&aacute;szl&oacute; Monda</a> (<a href="https://github.com/crti/symlinker">mod crti</a>), ' .
           'licensed under the <a href="http://www.gnu.org/licenses/gpl-3.0.html">' .
           'GPLv3</a></div>';
 }
